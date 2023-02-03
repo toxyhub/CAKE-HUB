@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet"type="text/css" href="{%static 'logstyle/style1.css' %}">
+</head>
+
+<body background="{% static 'images\pexels-elli-1854652.jpg' %}">
+    <center>
+    <div class="log">
+        <form>
+            <h1>Register</h1>
+            <input type="text" Name="Username" placeholder="Username" required> <br>
+            <input type="Firstname" placeholder="Firstname" required> <br>
+            <input type="text" placeholder="Lastname" required> <br>
+            <input type="E-Mail" placeholder="E-Mail" required> <br>
+            <input type="Password" Name="password" placeholder="Password" required> <br>
+            <input type="Password" placeholder="Re-enter password" required> <br>
+            <button type="Register">Register</button>
+            </div>
+        </form>
+    </center>
+</body>
+</html>

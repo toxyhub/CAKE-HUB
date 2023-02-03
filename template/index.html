@@ -36,7 +36,13 @@
 			<div class="row">
 				<div class="wrap flex-container padding-small">
 				<div class="contact-block">
-					<span class="pr-50"><i class="icon icon-phone"></i>5555-00-444</span>
+
+					{% if user.is_authenticated %}		<!--checking in jango is logged in-->
+
+					<span class="pr-50"><h6 style="color: rgb(151, 140, 151);">Hi,&nbsp;&nbsp; {{user.username}}</h6></span>
+
+					{% endif %}
+
 					<span class="color-secondary"><i class="icon icon-envelope-o"></i><a href="#"> bakery@gmail.com</a></span>
 				</div>
 
@@ -73,19 +79,10 @@
 							<li class="nav-item text-hover active"><a href="index.html" class="nav-link" data-effect="Home">Home</a></li>
 							<li class="nav-item text-hover"><a href="about.html" class="nav-link" data-effect="About Us">About us</a></li>
 							<li class="nav-item text-hover"><a href="blog.html" class="nav-link" data-effect="Blogs">Blog</a></li>
-							<li class="nav-item text-hover"><a href="contact.html" class="nav-link" data-effect="Contact">Contact us</a></li>
+							<li class="nav-item text-hover"><a href="login/" class="nav-link" data-effect="Contact">Login</a></li>
+							<li class="nav-item text-hover"><a href="register/" class="nav-link" data-effect="Contact">Register</a></li>
 
-							<li class="nav-item dropdown">
-								<a href="#" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle">Pages</a>
-								<ul class="dropdown-menu">
-									<li><a href="about.html" class="dropdown-item">About us</a></li>
-									<li><a href="blog.html" class="dropdown-item">Blog</a></li>
-									<li><a href="single-post.html" class="dropdown-item">Single Post</a></li>
-									<li><a href="contact.html" class="dropdown-item">Contact us</a></li>
-									<li><a href="shop.html" class="dropdown-item">Shop</a></li>
-									<li><a href="single-product.html" class="dropdown-item">Single Product</a></li>
-								</ul>
-							</li>
+							
 
 						</ul>
 					</div>

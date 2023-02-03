@@ -21,4 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/',views.apex),
     path('',views.index),
+    path('login/',views.img),
+    path('register/',views.img1),
+    path('login/logsub/',views.logsub)
 ]
