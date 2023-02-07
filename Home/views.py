@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth.models import auth
+from django.contrib.auth.models import auth,User
 
 # Create your views here.
 def apex(request):
@@ -14,8 +14,8 @@ def img1(request):
     return render(request,'register.html')
 
 def logsub(request):
-    uname=request.GET["Username"]
-    pword=request.GET["Password"]
+    uname=request.POST["Username"]
+    pword=request.POST["Password"]
     user=auth.authenticate(username=uname,password=pword)
     if(user is not None):
         auth.login(request,user)
@@ -25,3 +25,29 @@ def logsub(request):
         msg="Invalid"
         
         return render(request,'apex.html',{"a":msg})
+
+def regsub(request):
+    uname=request.POST["Username"]
+    fname=request.POST["Firstname"]
+    lname=request.POST["Lastname"]
+    Email=request.POST["EMail"]
+    pword=request.POST["Password"]
+    repword=request.POST["RePassword"]
+
+    if pword==repword:
+        if User.objects.filter(username=uname).exists():
+            msg="Username already Taken"
+        elif User.objects.filter(email=Email).exists():
+            msg="E-mail already taken"
+        else:
+            user=User.objects.create_user(username=uname,first_name=fname,last_name=lname,email=Email,password=pword)
+            user.save()
+            auth.login(request,user)        #Automatically login after registration
+            msg="Registration successful"
+            return redirect('/')
+    else:
+        msg="password not invalid"
+
+        return render(request,'apex.html',{"x":msg})
+
+    
