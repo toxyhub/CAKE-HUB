@@ -13,12 +13,13 @@
 <body background="{% static 'images\pexels-elli-1854652.jpg' %}">
     <center>
     <div class="log">
-        <form action="logsub/" method="post">
+        <form action="{% url 'logpage' %}" method="post">
             {% csrf_token %}
             <h1>login</h1>
             <input type="text" Name="Username" placeholder="Username" required> <br>
             <input type="password" Name="Password" placeholder="Password" required> <br>
-            <button type="Submit">Submit</button>
+            <button type="Submit">Submit</button><br>
+            <font size='3' color="white">{{mess}}</font>
             </div>
         </form>
     </center>

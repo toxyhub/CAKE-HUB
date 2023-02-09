@@ -13,7 +13,7 @@
 <body background="{% static 'images\pexels-elli-1854652.jpg' %}">
     <center>
     <div class="log">
-        <form action="regsub/" method="post">
+        <form action="{% url 'regpage' %}" method="post">
             {% csrf_token %}
             <h1>Register</h1>
             <input type="text" name="Username" placeholder="Username" required> <br>
@@ -22,7 +22,8 @@
             <input type="E-Mail" name="EMail" placeholder="E-Mail" required> <br>
             <input type="Password" name="Password" placeholder="Password" required> <br>
             <input type="Password" name="RePassword" placeholder="Re-enter password" required> <br>
-            <button type="Register">Register</button>
+            <button type="Register">Register</button> <br>
+            <font face="Arial" size='3' color="white">{{regs}}</font>
             </div>
         </form>
     </center>

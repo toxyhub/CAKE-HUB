@@ -24,7 +24,7 @@ def logsub(request):
     else:
         msg="Invalid"
         
-        return render(request,'apex.html',{"a":msg})
+        return render(request,'login.html',{"mess":msg})
 
 def regsub(request):
     uname=request.POST["Username"]
@@ -46,8 +46,8 @@ def regsub(request):
             msg="Registration successful"
             return redirect('/')
     else:
-        msg="password not invalid"
+        msg="password not same"
 
-        return render(request,'apex.html',{"x":msg})
+    return render(request,'register.html',{'regs':msg})
 
     
