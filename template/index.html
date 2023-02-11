@@ -79,10 +79,15 @@
 							<li class="nav-item text-hover active"><a href="index.html" class="nav-link" data-effect="Home">Home</a></li>
 							<li class="nav-item text-hover"><a href="about.html" class="nav-link" data-effect="About Us">About us</a></li>
 							<li class="nav-item text-hover"><a href="blog.html" class="nav-link" data-effect="Blogs">Blog</a></li>
+
+							{% if user.is_authenticated %}
+
+							<li class="nav-item text-hover"><a href="logout/" class="nav-link" data-effect="Contact">Logout</a></li>
+							{% else %}
 							<li class="nav-item text-hover"><a href="login/" class="nav-link" data-effect="Contact">Login</a></li>
 							<li class="nav-item text-hover"><a href="register/" class="nav-link" data-effect="Contact">Register</a></li>
 
-							
+							{% endif %}
 
 						</ul>
 					</div>

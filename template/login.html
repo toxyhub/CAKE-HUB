@@ -13,7 +13,7 @@
 <body background="{% static 'images\pexels-elli-1854652.jpg' %}">
     <center>
     <div class="log">
-        <form action="{% url 'logpage' %}" method="post">
+        <form action="{% url 'logi' %}" method="post">
             {% csrf_token %}
             <h1>login</h1>
             <input type="text" Name="Username" placeholder="Username" required> <br>
