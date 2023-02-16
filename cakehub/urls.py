@@ -16,16 +16,28 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Home import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Home.urls')),
     path('product/',include('product.urls')),
 
-]
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 
-#path('test/',views.apex),
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    #path('test/',views.apex),
     #path('',views.index),
     #path('login/',views.log,name='logi'),
     #path('register/',views.reg,name='regi'),

@@ -1,12 +1,14 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import auth,User
+from product.models import CakePro
 
 # Create your views here.
 def apex(request):
     return render(request,'apex.html')
 
 def index(request):
-   return render(request,'index.html')
+    data=CakePro.objects.all()
+    return render(request,'index.html',{'data':data})
 
 def log(request):
     if request.method=='POST':
