@@ -276,7 +276,7 @@
 				{% for i in data %}	
 
 				<div class="product-item col-md-3 pl-0">
-					<a href="single-product.html" class="product-image">
+					<a href="{% url 'details' %}?id={{i.id}}" class="product-image">
 						<img src={{i.image.url}}></a>
 					<div class="text-comtent text-center text-hover">
 						<h5 class="pt-4"><a href="single-product.html">{{i.name}}</a></h5>

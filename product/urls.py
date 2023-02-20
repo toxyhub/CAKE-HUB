@@ -3,5 +3,7 @@ from . import views
 
 urlpatterns = [
 
-    path('',views.product)
+    #path('',views.details,name='details')
+    path('',views.details,name='details'),
+    path('cmt/',views.commentarea,name='cmtpage')
 ]
