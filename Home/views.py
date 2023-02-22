@@ -8,7 +8,11 @@ def apex(request):
 
 def index(request):
     data=CakePro.objects.all()
-    return render(request,'index.html',{'data':data})
+    if 'username' in request.COOKIES:
+        x=request.COOKIES['username']
+    else: 
+            x=''
+    return render(request,'index.html',{'data':data,'abc':x})
 
 def log(request):
     if request.method=='POST':
@@ -17,8 +21,10 @@ def log(request):
         user=auth.authenticate(username=uname,password=pword)
         if(user is not None):
             auth.login(request,user)
-            msg="Login Successful"
-            return redirect('/')
+            response=redirect('/')
+            response.set_cookie('username',uname)
+            return response
+            
         else:
             msg="Invalid"
         
@@ -94,4 +100,7 @@ def regsub(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect('/')
+    response=redirect('/')
+    response.delete_cookie('username')
+    return response
+    
