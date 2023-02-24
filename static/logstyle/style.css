@@ -26,3 +26,6 @@
 }.log h1{
     font-style: italic;
 }
+.log button:active{
+    transform:scale(.80)
+}

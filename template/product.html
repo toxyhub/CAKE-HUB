@@ -185,7 +185,14 @@
 				</div>
 			</div>
 
+		</div> <br>
+
+		<div>
+			{% for i in recent %}
+			<a href="{% url 'details' %}?id={{i.id}}"></a><img src="{{i.image.url}}" width="132px" height="132px">&nbsp;&nbsp;
+			{% endfor %}
 		</div>
+
 	<div><h2>Comments</h2>
 		<div class="comment-box">
 			
@@ -197,9 +204,9 @@
 				{% endfor %}
 
 			{% else %}
-			<h2>
+			<h3>
 				No comments here..
-			</h2>
+			</h3>
 			{% endif %}
 
 		</div>
