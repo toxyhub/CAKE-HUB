@@ -189,7 +189,7 @@
 
 		<div>
 			{% for i in recent %}
-			<a href="{% url 'details' %}?id={{i.id}}"></a><img src="{{i.image.url}}" width="132px" height="132px">&nbsp;&nbsp;
+			<a href="{% url 'details' %}?id={{i.id}}"><img src="{{i.image.url}}" width="132px" height="132px">&nbsp;&nbsp;</a>
 			{% endfor %}
 		</div>
 
