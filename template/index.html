@@ -24,6 +24,9 @@
 
 		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
 	    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
 
 	</head>
 
@@ -86,8 +89,9 @@
 							{% else %}
 							<li class="nav-item text-hover"><a href="login/" class="nav-link" data-effect="Contact">Login</a></li>
 							<li class="nav-item text-hover"><a href="register/" class="nav-link" data-effect="Contact">Register</a></li>
-
+							
 							{% endif %}
+							<li class="nav-item text-hover"><a href="srh/" class="nav-link" data-effect="Contact">Search</a></li>
 
 						</ul>
 					</div>
@@ -98,7 +102,7 @@
 								<i class="icon icon-search"></i>
 							</a>
 							<form role="search" method="get" class="search-box" action="">
-								<input class="search-field text search-input" placeholder="Search" type="search">
+								<input class="search-field text search-input" placeholder="Search" type="search" style="color: black;" id="tags">
 							</form>
 						</div>
 						<div class="shopping-cart">
@@ -131,7 +135,8 @@
 				<h2 class="text-uppercase colored padding-xsmall"><a href="#">delicious cupcakes for you</a></h2>
 				<p>A gorgeous selection of our favorites for a client to send as a new year’s gift.A gorgeous selection of our favorites for a client to send as a new year’s gift</p>
 				<div class="pix_btn">
-					<a href="#" class="btn-hvr-effects mt-3">Shop Now</a>
+					
+				<a href="#" class="btn-hvr-effects mt-3">Shop Now</a>
 				</div>
 			</div><!--content-box-->
 
@@ -301,6 +306,7 @@
 				<p>All of our products are made from scratch using family recipes with the highest quality ingredients. We bake and sell fresh daily to ensure only the best products are sold to our customers.</p>
 
 			<div class="pix_btn mt-4">
+				
 				<a class="btn btn-outline-light">
 				    <span>Shop Now</span>
 		  		</a>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .srh{
+            background-color: rgba(153, 145, 145, 0.39);
+            height: 200px;
+            width: 400px;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+        
+        }.srh input{
+            margin: 10px;
+            width: 250px;
+            height: 30px;
+            padding-left: 10px;
+            border-radius: 10px;
+            margin-top: 80px;
+            margin-left: 8px;
+        
+        }.srh button{
+            width: 90px;
+            height: 30px;
+            border-radius: 10px;
+            color: aliceblue;
+            background-color: rgba(253, 0, 0, 0.74);
+            margin-top: 20px;
+            margin-bottom: 30px;
+        
+        
+        }.srh button:active{
+            transform:scale(.80)
+        }
+        h1{
+            margin-top: 150px;
+            color: rgb(10, 10, 9);
+            font-style: italic;
+        }
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    
+    $( "#tags" ).autocomplete({
+      source: "{% url 'auto' %}"
+    });
+  } );
+  </script>
+</head>
+<body bgcolor="#809fff">
+    <center>
+    <h1>CakeHub</h1>
+    </center>
+    <center><div class="srh">
+        <form action="{% url 'details' %}">
+        <input type="Search" id="tags" placeholder="Type here" name="nam">
+        <button type="submit">Search</button>
+    </form>
+    </center>
+
+</div>
+</body>
+</html>

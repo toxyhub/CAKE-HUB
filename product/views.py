@@ -1,13 +1,20 @@
 from django.shortcuts import render,redirect
 from product.models import CakePro ,commentBox 
 
+
 # Create your views here.
 
 def product(request):
     return render(request,'apex.html')
 
 def details(request):
-    idm=request.GET['id']
+    if 'id' in request.GET:
+        idm=request.GET['id']
+    elif 'nam' in request.GET:
+        nam=request.GET['nam']
+        namobj=CakePro.objects.get(name=nam)
+        idm=namobj.id
+        
     data=CakePro.objects.get(id=idm)    #id is the database id compare with idm to take the product.
     if 'recent_view' in request.session:
         if idm in request.session['recent_view']:

@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import auth,User
 from product.models import CakePro
+from django.http.response import JsonResponse
 
 # Create your views here.
 def apex(request):
@@ -103,4 +104,17 @@ def logout(request):
     response=redirect('/')
     response.delete_cookie('username')
     return response
+
+def search(request):
+    return render(request,'search.html')
+    
+def autocom(request):
+    if 'term' in request.GET:
+        val=request.GET['term']
+        names=CakePro.objects.filter(name__istartswith=val)
+        print('hi',names)
+        name=[]
+        for i in names:
+            name.append(i.name)
+    return JsonResponse(name,safe=False)    #for not loading or refreshing give back the value as Jason response
     
