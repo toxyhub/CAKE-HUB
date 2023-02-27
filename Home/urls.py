@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .feed import cakeupdate
 
 urlpatterns = [
     
@@ -9,5 +10,6 @@ urlpatterns = [
     path('register/',views.reg,name='regi'),
     path('logout/',views.logout),
     path('srh/',views.search, name='search'),
-    path('autocom/',views.autocom,name='auto')
+    path('autocom/',views.autocom,name='auto'),
+    path('feed/',cakeupdate()),   
 ]
