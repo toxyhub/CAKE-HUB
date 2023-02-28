@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from product.models import CakePro ,commentBox 
-
+from django.core.cache import cache
 
 # Create your views here.
 
@@ -51,3 +51,20 @@ def commentarea(request):
     comment.save();
     return redirect('/pro/?id='+pro)
     #return render(request,'apex.html')
+
+def details2(request):
+    if 'id' in request.GET:
+        idm=request.GET['id']
+    elif 'nam' in request.GET:
+        nam=request.GET['nam']
+        namobj=CakePro.objects.get(name=nam)
+        idm=namobj.id
+        
+    if cache.get(idm):
+        print('DATA FROM CACHE')
+        data=cache.get(idm)
+    else:
+        data=CakePro.objects.get(id=idm)
+        cache.set(idm,data)
+        print('DATA FROM DATABASE')
+    return render(request,'product.html',{"prodetail":data})
